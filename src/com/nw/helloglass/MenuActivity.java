@@ -1,10 +1,15 @@
 package com.nw.helloglass;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 public class MenuActivity extends Activity {
 
@@ -25,19 +30,9 @@ public class MenuActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection.
         switch (item.getItemId()) {
-        
-        	case R.id.action_call:
-        		//startActivity(new Intent(Intent.ACTION_CALL));
-        		return true;
-            
-        	case R.id.action_directions:
-        		//startActivity(new Intent(Intent.ACTION_VOICE_COMMAND));
-                return true;
-        	
-        	case R.id.action_close:
+            case R.id.action_close:
                 stopService(new Intent(this, HelloService.class));
                 return true;
-                
             default:
                 return super.onOptionsItemSelected(item);
         }
