@@ -39,11 +39,11 @@ public class HelloService extends Service {
     	
     	 if (mLiveCard == null) {
              mLiveCard = mTimelineManager.createLiveCard(CARD_TAG);
-             Intent mainIntent = new Intent(this, MainActivity.class);
+             Intent menuIntent = new Intent(this, MenuActivity.class);
              mLiveCard.setDirectRenderingEnabled(true).getSurfaceHolder().addCallback(mHelloDrawer);
              
-             mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-             mLiveCard.setAction(PendingIntent.getActivity(this, 0, mainIntent, 0));
+             menuIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+             mLiveCard.setAction(PendingIntent.getActivity(this, 0, menuIntent, 0));
              mLiveCard.publish(PublishMode.REVEAL);
          } else {
              // TODO(alainv): Jump to the LiveCard when API is available.

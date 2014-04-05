@@ -48,7 +48,7 @@ public class HelloView extends FrameLayout {
     public HelloView(Context context, AttributeSet attrs, int style) {
         super(context, attrs, style);
 
-        LayoutInflater.from(context).inflate(R.layout.helloglass_main, this);
+        LayoutInflater.from(context).inflate(R.layout.livecard, this);
 
        
     }

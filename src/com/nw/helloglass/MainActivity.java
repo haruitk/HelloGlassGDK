@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.helloglass, menu);
+		getMenuInflater().inflate(R.menu.helloglassmenu, menu);
 		bindService(new Intent(this, HelloService.class), null, 0);
 		return true;
 	}
@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == R.id.container  ) {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
