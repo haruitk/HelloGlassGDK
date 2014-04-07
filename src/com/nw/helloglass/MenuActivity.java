@@ -27,11 +27,23 @@ public class MenuActivity extends Activity {
         switch (item.getItemId()) {
         
         	case R.id.action_call:
-        		//startActivity(new Intent(Intent.ACTION_CALL));
+        		Intent intent = new Intent(Intent.ACTION_DIAL);
+        	    intent.setData(Uri.parse("tel:" + "0000000000"));
+        	    if (intent.resolveActivity(getPackageManager()) != null) {
+        	        startActivity(intent);
         		return true;
             
         	case R.id.action_directions:
-        		//startActivity(new Intent(Intent.ACTION_VOICE_COMMAND));
+        		Intent intent = new Intent(Intent.ACTION_VIEW);
+        		Double myLatitude = 44.433106;
+        		Double myLongitude = 26.103687;
+        		String labelLocation = "Jorgesys @ Bucharest";
+        		Uri geoLocation = Uri.parse("geo:<" + myLatitude  + ">,<" + myLongitude + ">?q=<" + myLatitude  + ">,<" + myLongitude + ">(" + labelLocation + ")");
+        		intent.setData(geoLocation);
+        	    
+        	    if (intent.resolveActivity(getPackageManager()) != null) {
+        	        startActivity(intent);
+        	    }
                 return true;
         	
         	case R.id.action_close:
