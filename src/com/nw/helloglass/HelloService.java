@@ -27,7 +27,7 @@ public class HelloService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        //mTimelineManager = TimelineManager.from(this);
+        mTimelineManager = TimelineManager.from(this);
         mHelloDrawer = new HelloDrawer(this);
     }
        
