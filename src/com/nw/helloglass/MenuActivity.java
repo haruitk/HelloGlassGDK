@@ -2,6 +2,7 @@ package com.nw.helloglass;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,17 +25,19 @@ public class MenuActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection.
+    	Intent intent;
         switch (item.getItemId()) {
         
         	case R.id.action_call:
-        		Intent intent = new Intent(Intent.ACTION_DIAL);
+        		intent = new Intent(Intent.ACTION_DIAL);
         	    intent.setData(Uri.parse("tel:" + "0000000000"));
         	    if (intent.resolveActivity(getPackageManager()) != null) {
         	        startActivity(intent);
         		return true;
+        	    }
             
         	case R.id.action_directions:
-        		Intent intent = new Intent(Intent.ACTION_VIEW);
+        		intent = new Intent(Intent.ACTION_VIEW);
         		Double myLatitude = 44.433106;
         		Double myLongitude = 26.103687;
         		String labelLocation = "Jorgesys @ Bucharest";

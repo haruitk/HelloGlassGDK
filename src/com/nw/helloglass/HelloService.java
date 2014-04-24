@@ -27,7 +27,7 @@ public class HelloService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mTimelineManager = TimelineManager.from(this);
+        //mTimelineManager = TimelineManager.from(this);
         mHelloDrawer = new HelloDrawer(this);
     }
        
@@ -37,13 +37,17 @@ public class HelloService extends Service {
     	
     	 if (mLiveCard == null) {
              mLiveCard = mTimelineManager.createLiveCard(CARD_TAG);
-             Intent menuIntent = new Intent(this, MenuActivity.class);
-             mLiveCard.setDirectRenderingEnabled(true).getSurfaceHolder().addCallback(mHelloDrawer);
+    		 //mLiveCard = new LiveCard(this, CARD_TAG);
+    		 mLiveCard.setDirectRenderingEnabled(true).getSurfaceHolder().addCallback(mHelloDrawer);
              
+    		 Intent menuIntent = new Intent(this, MenuActivity.class);
              menuIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+             
              mLiveCard.setAction(PendingIntent.getActivity(this, 0, menuIntent, 0));
+             //mLiveCard.attach(this);
              mLiveCard.publish(PublishMode.REVEAL);
          } else {
+        	 //mLiveCard.navigate();
              // TODO(alainv): Jump to the LiveCard when API is available.
          }
        
