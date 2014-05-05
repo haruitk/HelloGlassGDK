@@ -7,7 +7,7 @@ import android.os.IBinder;
 
 import com.google.android.glass.timeline.LiveCard;
 import com.google.android.glass.timeline.LiveCard.PublishMode;
-import com.google.android.glass.timeline.TimelineManager;
+//import com.google.android.glass.timeline.TimelineManager;
 
 public class HelloService extends Service {
 
@@ -21,13 +21,13 @@ public class HelloService extends Service {
 	private static final String CARD_TAG = "helloGlass";
 	private HelloDrawer mHelloDrawer;
 
-    private TimelineManager mTimelineManager;
+    //private TimelineManager mTimelineManager;
     private LiveCard mLiveCard;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        mTimelineManager = TimelineManager.from(this);
+        //mTimelineManager = TimelineManager.from(this);
         mHelloDrawer = new HelloDrawer(this);
     }
        
@@ -36,8 +36,8 @@ public class HelloService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
     	
     	 if (mLiveCard == null) {
-             mLiveCard = mTimelineManager.createLiveCard(CARD_TAG);
-    		 //mLiveCard = new LiveCard(this, CARD_TAG);
+             //mLiveCard = mTimelineManager.createLiveCard(CARD_TAG);
+    		 mLiveCard = new LiveCard(this, CARD_TAG);
     		 mLiveCard.setDirectRenderingEnabled(true).getSurfaceHolder().addCallback(mHelloDrawer);
              
     		 Intent menuIntent = new Intent(this, MenuActivity.class);

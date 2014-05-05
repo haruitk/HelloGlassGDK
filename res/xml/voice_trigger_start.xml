@@ -14,4 +14,4 @@
      limitations under the License.
 -->
 
-<trigger keyword="@string/start_helloGlass" />
+<trigger command="SHOW_ME_A_DEMO" />

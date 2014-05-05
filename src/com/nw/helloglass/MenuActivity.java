@@ -31,18 +31,15 @@ public class MenuActivity extends Activity {
         	case R.id.action_call:
         		intent = new Intent(Intent.ACTION_DIAL);
         	    intent.setData(Uri.parse("tel:" + "0000000000"));
+        	    //startActivity(intent);
         	    if (intent.resolveActivity(getPackageManager()) != null) {
         	        startActivity(intent);
-        		return true;
         	    }
+        	    return true;
             
         	case R.id.action_directions:
         		intent = new Intent(Intent.ACTION_VIEW);
-        		Double myLatitude = 44.433106;
-        		Double myLongitude = 26.103687;
-        		String labelLocation = "Jorgesys @ Bucharest";
-        		Uri geoLocation = Uri.parse("geo:<" + myLatitude  + ">,<" + myLongitude + ">?q=<" + myLatitude  + ">,<" + myLongitude + ">(" + labelLocation + ")");
-        		intent.setData(geoLocation);
+        		intent.setData(Uri.parse("google.navigation:q=San+Diego"));
         	    
         	    if (intent.resolveActivity(getPackageManager()) != null) {
         	        startActivity(intent);
